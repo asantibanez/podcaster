@@ -29,7 +29,7 @@
 
         data() {
             return {
-                host: "localhost",
+                host: "192.168.100.16",
                 port: 3000,
 
                 video: {},
@@ -52,7 +52,6 @@
             connect() {
                 this.peer = new Peer(this.peerId, {host: this.host, port: this.port, path: '/api'});
                 this.peer.on('call', (call) => {
-                    console.log('call received');
                     call.answer(this.mediaStream);
 
                     call.on('stream', stream => {
