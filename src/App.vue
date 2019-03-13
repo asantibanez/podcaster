@@ -56,6 +56,7 @@
 
                     call.on('stream', stream => {
                         this.partner.srcObject = stream;
+                        this.partner.play();
                     });
                 })
             },
