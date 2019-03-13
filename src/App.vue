@@ -2,8 +2,8 @@
     <div id="app">
 
         <div class="flex flex-row">
-            <video class="flex-1" ref="video" id="video" width="640" height="480" autoplay></video>
-            <video class="flex-1" ref="partner" id="partnet" width="640" height="480" autoplay></video>
+            <audio class="flex-1" ref="video" id="video" controls></audio>
+            <audio class="flex-1" ref="partner" id="partner" controls></audio>
         </div>
 
         <br>
@@ -70,7 +70,7 @@
             getUserVideo() {
                 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-                navigator.getUserMedia({audio: false, video: true}, stream => {
+                navigator.getUserMedia({audio: true, video: false}, stream => {
                     this.mediaStream = stream;
                     this.video.srcObject = this.mediaStream;
                 }, () => {
