@@ -64,6 +64,7 @@
                 const call = this.peer.call(this.invitePeerId, this.mediaStream);
                 call.on('stream', stream => {
                     this.partner.srcObject = stream;
+                    this.partner.play();
                 });
             },
 
@@ -72,6 +73,8 @@
 
                 navigator.getUserMedia({audio: true, video: false}, stream => {
                     this.mediaStream = stream;
+                    this.video.muted = true;
+                    this.video.play();
                     this.video.srcObject = this.mediaStream;
                 }, () => {
                     alert("Error! Make sure to click allow when asked for permission by the browser");
