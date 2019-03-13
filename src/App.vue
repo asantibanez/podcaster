@@ -61,7 +61,10 @@
             },
 
             invite() {
-                this.peer.call(this.invitePeerId, this.mediaStream)
+                const call = this.peer.call(this.invitePeerId, this.mediaStream);
+                call.on('stream', stream => {
+                    this.partner.srcObject = stream;
+                });
             },
 
             getUserVideo() {
