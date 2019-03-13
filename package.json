@@ -8,8 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "hark": "^1.2.3",
     "peerjs": "^0.3.24",
-    "vue": "^2.6.6"
+    "vue": "^2.6.6",
+    "vue-lottie": "^0.2.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
