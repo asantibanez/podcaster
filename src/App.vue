@@ -2,20 +2,23 @@
     <div id="app">
 
         <div class="flex flex-row">
-            <audio class="flex-1" ref="video" id="video" controls></audio>
-            <audio class="flex-1" ref="partner" id="partner" controls></audio>
+            <video class="flex-1" ref="video" id="video" controls></video>
+            <video class="flex-1" ref="partner" id="partner" controls></video>
         </div>
 
         <br>
         <br>
+
         <input type="text" v-model="host" class="border"/>
         <input type="text" v-model="port" class="border"/>
         <br>
         <br>
+
         <input type="text" v-model="peerId" class="border"/>
         <button @click="connect" class="border bg-gray p-2 rounded ml-2">Connect</button>
         <br>
         <br>
+
         <input type="text" v-model="invitePeerId" class="border"/>
         <button @click="invite" class="border bg-gray p-2 rounded ml-2">Invite</button>
     </div>
@@ -72,7 +75,7 @@
             getUserVideo() {
                 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-                navigator.getUserMedia({audio: true, video: false}, stream => {
+                navigator.getUserMedia({audio: true, video: true}, stream => {
                     this.mediaStream = stream;
                     this.video.srcObject = this.mediaStream;
                     this.video.muted = true;
